@@ -1,0 +1,6 @@
+apiVersion: sunsetapi.com/v1
+kind: SunsetApi
+metadata:
+  name: my-sunsetapi
+spec:
+  sunsetAPICount: "0"

@@ -1,0 +1,9 @@
+---
+targetNameSpaces:
+  - name: default
+
+podsUnderTestLabels:
+  - "name: sunsetapi-operator"
+
+operatorsUnderTestLabels:
+  - "name: sunsetapi-operator"

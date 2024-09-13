@@ -1,0 +1,4 @@
+# Pinning deprecated dependency 
+# https://github.com/kubernetes-client/python/releases/tag/v27.2.0
+# https://github.com/kubernetes-client/python/blob/v27.2.0/kubernetes/client/api/flowcontrol_apiserver_v1beta2_api.py 
+kubernetes==27.2.0

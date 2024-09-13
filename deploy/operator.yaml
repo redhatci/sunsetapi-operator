@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunsetapi-operator
+  labels:
+    name: sunsetapi-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sunsetapi-operator
+  template:
+    metadata:
+      labels:
+        name: sunsetapi-operator
+    spec:
+      serviceAccountName: sunsetapi-operator-service-account
+      containers:
+      - name: sunsetapi-operator
+        # Image containing ansible role to reconcile
+        image: quay.io/tkrishtop/sunsetapi-operator:latest
+        # Required to see logs from the ansible tasks
+        # in the controller output
+        env:
+          - name: ANSIBLE_DEBUG_LOGS
+            value: "True"

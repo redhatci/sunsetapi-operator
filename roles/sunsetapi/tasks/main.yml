@@ -1,0 +1,22 @@
+---
+- name: Trigger flow_controls.py
+  ansible.builtin.shell:
+    cmd: /opt/ansible/scripts/flow_controls.py
+
+- name: Get SunsetApi information
+  community.kubernetes.k8s_info:
+    api_version: sunsetapi.com/v1
+    kind: SunsetApi
+  register: sunsetapi_info
+
+- name: Increase sunsetAPICount
+  community.kubernetes.k8s:
+    api_version: sunsetapi.com/v1
+    kind: SunsetApi
+    name: my-sunsetapi
+    namespace: "default"
+    definition:
+      spec:
+        sunsetAPICount: "{{ (sunsetapi_info.resources[0].spec.sunsetAPICount | int) + 1 }}"
+    merge_type: merge
+...

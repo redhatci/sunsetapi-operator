@@ -1,0 +1,6 @@
+# https://sdk.operatorframework.io/docs/building-operators/ansible/reference/watches/
+- version: v1
+  group: sunsetapi.com
+  kind: SunsetApi
+  role: /opt/ansible/roles/sunsetapi
+  ansibleNamespace: default
